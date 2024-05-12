@@ -3,9 +3,7 @@ import pprint
 
 from homeassistant.components.sensor import (
     SensorEntity,
-)
-from homeassistant.components.sensor.const import (
-    STATE_CLASS_MEASUREMENT,
+    SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import STATE_UNAVAILABLE
@@ -109,7 +107,7 @@ class MeteoSwissSensor(
     @property
     def state_class(self):
         """Return the state class of the sensor."""
-        return STATE_CLASS_MEASUREMENT
+        return SensorStateClass.MEASUREMENT
 
     @callback
     def _handle_coordinator_update(self) -> None:
